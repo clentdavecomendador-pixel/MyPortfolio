@@ -11,6 +11,8 @@ export const FooterStyled = styled.footer`
  border-top: 1px solid #D6A84F;
  font-family: "Inter", sans-serif;
  gap: 1rem;
+ box-sizing: border-box;
+ width: 100%;
 
  p {
   margin: 0;
@@ -52,5 +54,55 @@ export const FooterStyled = styled.footer`
     font-size: 0.9rem;
    }
   }
+ }
+
+ @media (max-width: 900px){
+  padding-inline: 2.5rem;
+  grid-template-columns: 1fr auto;
+
+  .location{
+   justify-self: end;
+  }
+
+  .socials{
+   grid-column: 1 / -1;
+   justify-self: center;
+  }
+ }
+
+ @media (max-width: 700px){
+  grid-template-columns: 1fr;
+  justify-items: center;
+  padding: 1.25rem;
+  gap: 0.75rem;
+  text-align: center;
+
+  .copy,
+  .location,
+  .socials{
+   justify-self: center;
+  }
+
+  .copy,
+  .location{
+   font-size: 0.8rem;
+   line-height: 1.45;
+  }
+
+  .socials{
+   grid-column: auto;
+   justify-content: center;
+   flex-wrap: wrap;
+   gap: 0.75rem 1.25rem;
+
+   a{
+    min-height: 44px;
+    font-size: 0.82rem;
+   }
+  }
+ }
+
+ @media (max-width: 380px){
+  padding-inline: 1rem;
  }
 `;

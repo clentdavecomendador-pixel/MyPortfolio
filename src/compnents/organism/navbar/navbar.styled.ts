@@ -6,13 +6,20 @@ export const NavbarStyled = styled.nav`
  width: 65%;
  display: flex;
  justify-content: space-between;
+ align-items: center;
+ gap: 1.5rem;
+
     ul{
      display: flex;
      justify-content: center;
      gap: 2rem;
+     margin: 0;
+     padding: 0;
+
         li{
          list-style: none;
          align-items: center;
+
             a{
              display: inline-block;
              text-decoration: none;
@@ -30,6 +37,7 @@ export const NavbarStyled = styled.nav`
         .github{
             a{
              position: relative;
+             white-space: nowrap;
 
                 &::before{
                  content: "";
@@ -39,6 +47,67 @@ export const NavbarStyled = styled.nav`
                  pointer-events: none;
                  border-radius: 10rem;
                 }
+            }
+        }
+    }
+
+    @media (max-width: 900px){
+        width: 70%;
+        gap: 1rem;
+
+        ul{
+            gap: 1.25rem;
+        }
+    }
+
+    @media (max-width: 700px){
+        width: 100%;
+        flex-direction: column;
+        align-items: stretch;
+        gap: 0.75rem;
+
+        ul:first-child{
+            width: 100%;
+            flex-wrap: wrap;
+            gap: 0.5rem 1.25rem;
+
+            li a{
+                min-height: 44px;
+                display: inline-flex;
+                align-items: center;
+
+                &:hover,
+                &.active{
+                    transform: none;
+                }
+            }
+        }
+
+        ul:last-child{
+            width: 100%;
+            justify-content: flex-start;
+            align-items: center;
+            gap: 0.75rem;
+
+            .github a{
+                min-height: 44px;
+                display: inline-flex;
+                align-items: center;
+
+                &::before{
+                    inset: -0.25rem -0.65rem;
+                }
+            }
+        }
+    }
+
+    @media (max-width: 380px){
+        ul:first-child{
+            justify-content: space-between;
+            gap: 0.25rem;
+
+            li a{
+                font-size: 0.82rem;
             }
         }
     }
